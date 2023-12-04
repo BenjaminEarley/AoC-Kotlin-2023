@@ -1,7 +1,3 @@
-package day01
-
-import println
-import readInput
 import kotlin.UnsupportedOperationException
 
 fun main() {
@@ -10,11 +6,6 @@ fun main() {
 
     fun part2(input: List<String>): Int =
         input.sumOf { "${it.firstNumber()}${it.lastNumber()}".toInt() }
-
-    val part1 = readInput("day01/Part1")
-    part1(part1).println()
-    val part2 = readInput("day01/Part2")
-    part2(part2).println()
 }
 
 private val numbers = setOf(
