@@ -1,7 +1,7 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        val adjacentSymbols = input.adjacentSymbols()
-        return input.numbers().filter { it.positions.any(adjacentSymbols::contains) }.sumOf(Number::value)
+        val symbols = input.allPositionsAdjacentSymbols()
+        return input.numbers().filter { it.positions.any(symbols::contains) }.sumOf(Number::value)
     }
 
     fun part2(input: List<String>): Int {
@@ -32,7 +32,7 @@ private val Position.adjacentPositions
         }
     }
 
-private fun List<String>.adjacentSymbols(): Set<Position> = flatMapPositions { position, c ->
+private fun List<String>.allPositionsAdjacentSymbols(): Set<Position> = flatMapPositions { position, c ->
     if (!c.isDigit() && c != '.') position.adjacentPositions else emptyList()
 }.toSet()
 
